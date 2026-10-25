@@ -10,7 +10,7 @@
   </head>
   <body>
     <main class="page-shell">
-      <header class="page-header">
+      <header class="page-header" id="page-header">
         <span class="header-note">A personal health profile</span>
       </header>
 
@@ -31,10 +31,6 @@
           </div>
 
           <div class="form-grid">
-            <div class="field">
-              <label for="age">Current age <span class="unit">YEARS</span></label>
-              <input id="age" name="age" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 34" required>
-            </div>
             <div class="field">
               <label for="sex">Sex</label>
               <select id="sex" name="sex" required>
@@ -197,40 +193,46 @@
             <div class="family-row">
               <span class="condition-name">Heart Disease</span>
               <label class="visually-hidden" for="heart-parents">Heart Disease in parents</label>
-              <select id="heart-parents" name="familyHistory.heartDisease.parents" required aria-label="Heart Disease, parents"><option value="" selected disabled>Choose</option><option>Yes</option><option>No</option><option>Unsure</option></select>
+              <select id="heart-parents" name="familyHistory.heartDisease.parents" required aria-label="Heart Disease, parents"><option value="" selected disabled>Choose</option><option>Yes</option><option>No</option></select>
               <label class="visually-hidden" for="heart-grandparents">Heart Disease in grandparents</label>
-              <select id="heart-grandparents" name="familyHistory.heartDisease.grandparents" required aria-label="Heart Disease, grandparents"><option value="" selected disabled>Choose</option><option>Yes</option><option>No</option><option>Unsure</option></select>
+              <select id="heart-grandparents" name="familyHistory.heartDisease.grandparents" required aria-label="Heart Disease, grandparents"><option value="" selected disabled>Choose</option><option>Yes</option><option>No</option></select>
             </div>
             <div class="family-row">
               <span class="condition-name">Cancer</span>
               <label class="visually-hidden" for="cancer-parents">Cancer in parents</label>
-              <select id="cancer-parents" name="familyHistory.cancer.parents" required aria-label="Cancer, parents"><option value="" selected disabled>Choose</option><option>Yes</option><option>No</option><option>Unsure</option></select>
+              <select id="cancer-parents" name="familyHistory.cancer.parents" required aria-label="Cancer, parents"><option value="" selected disabled>Choose</option><option>Yes</option><option>No</option></select>
               <label class="visually-hidden" for="cancer-grandparents">Cancer in grandparents</label>
-              <select id="cancer-grandparents" name="familyHistory.cancer.grandparents" required aria-label="Cancer, grandparents"><option value="" selected disabled>Choose</option><option>Yes</option><option>No</option><option>Unsure</option></select>
+              <select id="cancer-grandparents" name="familyHistory.cancer.grandparents" required aria-label="Cancer, grandparents"><option value="" selected disabled>Choose</option><option>Yes</option><option>No</option></select>
             </div>
             <div class="family-row">
               <span class="condition-name">Diabetes</span>
               <label class="visually-hidden" for="diabetes-parents">Diabetes in parents</label>
-              <select id="diabetes-parents" name="familyHistory.diabetes.parents" required aria-label="Diabetes, parents"><option value="" selected disabled>Choose</option><option>Yes</option><option>No</option><option>Unsure</option></select>
+              <select id="diabetes-parents" name="familyHistory.diabetes.parents" required aria-label="Diabetes, parents"><option value="" selected disabled>Choose</option><option>Yes</option><option>No</option></select>
               <label class="visually-hidden" for="diabetes-grandparents">Diabetes in grandparents</label>
-              <select id="diabetes-grandparents" name="familyHistory.diabetes.grandparents" required aria-label="Diabetes, grandparents"><option value="" selected disabled>Choose</option><option>Yes</option><option>No</option><option>Unsure</option></select>
+              <select id="diabetes-grandparents" name="familyHistory.diabetes.grandparents" required aria-label="Diabetes, grandparents"><option value="" selected disabled>Choose</option><option>Yes</option><option>No</option></select>
             </div>
             <div class="family-row">
               <span class="condition-name">High Blood Pressure</span>
               <label class="visually-hidden" for="blood-pressure-parents">High Blood Pressure in parents</label>
-              <select id="blood-pressure-parents" name="familyHistory.highBloodPressure.parents" required aria-label="High Blood Pressure, parents"><option value="" selected disabled>Choose</option><option>Yes</option><option>No</option><option>Unsure</option></select>
+              <select id="blood-pressure-parents" name="familyHistory.highBloodPressure.parents" required aria-label="High Blood Pressure, parents"><option value="" selected disabled>Choose</option><option>Yes</option><option>No</option></select>
               <label class="visually-hidden" for="blood-pressure-grandparents">High Blood Pressure in grandparents</label>
-              <select id="blood-pressure-grandparents" name="familyHistory.highBloodPressure.grandparents" required aria-label="High Blood Pressure, grandparents"><option value="" selected disabled>Choose</option><option>Yes</option><option>No</option><option>Unsure</option></select>
+              <select id="blood-pressure-grandparents" name="familyHistory.highBloodPressure.grandparents" required aria-label="High Blood Pressure, grandparents"><option value="" selected disabled>Choose</option><option>Yes</option><option>No</option></select>
             </div>
           </div>
         </section>
 
         <div class="form-footer">
-          <p>Health information is for personal estimation only.</p>
           <button type="submit">Estimate your life expectancy <span aria-hidden="true">↗</span></button>
         </div>
-        <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
       </form>
+
+      <section id="result-view" class="result-view" aria-labelledby="result-title" aria-live="polite" hidden>
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> YOUR ESTIMATE</p>
+        <h1 id="result-title">Your estimated life<br><span>expectancy is</span></h1>
+        <p class="result-value"><span id="life-expectancy-value">--</span><span class="result-unit">YEARS</span></p>
+        <p id="result-note" class="result-note">Starting estimate based on the average life expectancy in your selected country.</p>
+        <button id="back-button" class="back-button" type="button"><span aria-hidden="true">←</span> Back to your profile</button>
+      </section>
     </main>
   </body>
 </html>
