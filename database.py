@@ -58,4 +58,4 @@ new = np.array([0,0])
 test = np.dot(W,new) + B
 
 
-print("Your life expectancy is " + test)
+print("Your remaining life expectancy is " + np.array2string(test[0]) + "years")
