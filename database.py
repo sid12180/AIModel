@@ -9,9 +9,15 @@ Original file is located at
 
 import pandas as pd
 import numpy as np
+
+
+#TODO: change url to snowflake
 sheet_id = "1EiaE1Qd8n_E0bDuvqEFaWAL3kj-MwW8gJniIBb_gcOI"
 csv_url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv"
 myDF = pd.read_csv(csv_url)
+#TODO: change url to snowflake
+
+
 y = myDF[['Lifetime']]
 x= myDF.drop(columns=['Lifetime'])
 W = np.zeros(x.shape[1])
@@ -37,7 +43,6 @@ def change(x,y,W,B):
     dW += (cost-y[j])*x[j]
     dB += (cost-y[j])
 
-  # Average gradients over all samples
   dW /= y.shape[0]
   dB /= y.shape[0]
 
@@ -54,8 +59,11 @@ for i in range(20):
     B = results[1]
   print(f"the loss at turn {(j+1)*(i+1)} is {loss(x,y,W,B)}")
 
+
+#TODO: change to user input
 new = np.array([0,0])
+#TODO: change to user input
+
+
 test = np.dot(W,new) + B
-
-
 print("Your remaining life expectancy is " + np.array2string(test[0]) + "years")
