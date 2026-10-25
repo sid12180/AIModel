@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#d4ff32">
+    <title>Life Expectancy Estimator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="page-header">
+        <span class="header-note">A personal health profile</span>
+      </header>
+
+      <section class="intro" id="top" aria-labelledby="page-title">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> YOUR STARTING POINT</p>
+        <h1 id="page-title">Life expectancy<br><span>estimator</span></h1>
+        <div class="intro-index" aria-hidden="true"><span>01</span><span>PROFILE</span></div>
+      </section>
+
+      <form id="health-form" class="health-form" novalidate>
+        <section class="form-section" aria-labelledby="about-heading">
+          <div class="section-heading">
+            <span class="section-number">01</span>
+            <div>
+              <h2 id="about-heading">About you</h2>
+              <p>The basics, plus a few everyday factors.</p>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="age">Current age <span class="unit">YEARS</span></label>
+              <input id="age" name="age" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 34" required>
+            </div>
+            <div class="field">
+              <label for="sex">Sex</label>
+              <select id="sex" name="sex" required>
+                <option value="" selected disabled>Select one</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+            <div class="field field-wide">
+              <label for="activity-level">Activity level</label>
+              <select id="activity-level" name="activityLevel" required>
+                <option value="" selected disabled>Select your usual activity</option>
+                <option value="sedentary">Sedentary</option>
+                <option value="lightly-active">Lightly Active</option>
+                <option value="moderately-active">Moderately Active</option>
+                <option value="very-active">Very Active</option>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <section class="form-section" aria-labelledby="body-heading">
+          <div class="section-heading">
+            <span class="section-number">02</span>
+            <div>
+              <h2 id="body-heading">Body measurements</h2>
+              <p>Imperial units <span class="inline-rule" aria-hidden="true"></span> BMI calculated automatically</p>
+            </div>
+          </div>
+
+          <div class="form-grid measurement-grid">
+            <div class="field">
+              <label for="weight">Weight <span class="unit">LBS</span></label>
+              <input id="weight" name="weight" type="number" min="0.1" step="any" inputmode="decimal" placeholder="e.g. 150.5" required>
+            </div>
+            <fieldset class="field height-field">
+              <legend>Height <span class="unit">FT / IN</span></legend>
+              <div class="height-inputs">
+                <label class="visually-hidden" for="height-feet">Height in feet</label>
+                <input id="height-feet" name="heightFeet" type="number" min="0" step="1" inputmode="numeric" placeholder="5" required>
+                <span aria-hidden="true">ft</span>
+                <label class="visually-hidden" for="height-inches">Height in inches</label>
+                <input id="height-inches" name="heightInches" type="number" min="0" max="11.99" step="any" inputmode="decimal" placeholder="7" required>
+                <span aria-hidden="true">in</span>
+              </div>
+            </fieldset>
+          </div>
+          <p class="field-hint">Enter your height as feet and remaining inches, such as 5 ft 7 in.</p>
+        </section>
+
+        <section class="form-section" aria-labelledby="habits-heading">
+          <div class="section-heading">
+            <span class="section-number">03</span>
+            <div>
+              <h2 id="habits-heading">Habits &amp; surroundings</h2>
+              <p>Everyday patterns and where you call home.</p>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="smoking-frequency">Smoking frequency</label>
+              <select id="smoking-frequency" name="smokingFrequency" required>
+                <option value="" selected disabled>Select frequency</option>
+                <option>Never</option>
+                <option>Rarely</option>
+                <option>Occasionally</option>
+                <option>Regularly</option>
+                <option>Daily</option>
+                <option>Chain Smoker</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="drinking-frequency">Drinking frequency</label>
+              <select id="drinking-frequency" name="drinkingFrequency" required>
+                <option value="" selected disabled>Select frequency</option>
+                <option>Never</option>
+                <option>Rarely</option>
+                <option>Occasionally</option>
+                <option>Regularly</option>
+                <option>Daily</option>
+                <option>Multiple times a day</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="income">Income <span class="unit">USD / YEAR</span></label>
+              <input id="income" name="income" type="number" min="0" step="any" inputmode="decimal" placeholder="e.g. 65000" required>
+            </div>
+            <div class="field">
+              <label for="location">Location <span class="unit">COUNTRY</span></label>
+              <input id="location" name="location" type="text" list="location-options" autocomplete="country-name" placeholder="Start typing a country" required>
+              <datalist id="location-options">
+                <option value="Afghanistan"></option><option value="Albania"></option><option value="Algeria"></option><option value="Andorra"></option>
+                <option value="Angola"></option><option value="Antigua and Barbuda"></option><option value="Argentina"></option><option value="Armenia"></option>
+                <option value="Australia"></option><option value="Austria"></option><option value="Azerbaijan"></option><option value="Bahamas"></option>
+                <option value="Bahrain"></option><option value="Bangladesh"></option><option value="Barbados"></option><option value="Belarus"></option>
+                <option value="Belgium"></option><option value="Belize"></option><option value="Benin"></option><option value="Bhutan"></option>
+                <option value="Bolivia"></option><option value="Bosnia and Herzegovina"></option><option value="Botswana"></option><option value="Brazil"></option>
+                <option value="Brunei"></option><option value="Bulgaria"></option><option value="Burkina Faso"></option><option value="Burundi"></option>
+                <option value="Cabo Verde"></option><option value="Cambodia"></option><option value="Cameroon"></option><option value="Canada"></option>
+                <option value="Central African Republic"></option><option value="Chad"></option><option value="Chile"></option><option value="China"></option>
+                <option value="Colombia"></option><option value="Comoros"></option><option value="Congo"></option><option value="Costa Rica"></option>
+                <option value="Cote d'Ivoire"></option><option value="Croatia"></option><option value="Cuba"></option><option value="Cyprus"></option>
+                <option value="Czechia"></option><option value="Democratic Republic of the Congo"></option><option value="Denmark"></option><option value="Djibouti"></option>
+                <option value="Dominica"></option><option value="Dominican Republic"></option><option value="Ecuador"></option><option value="Egypt"></option>
+                <option value="El Salvador"></option><option value="Equatorial Guinea"></option><option value="Eritrea"></option><option value="Estonia"></option>
+                <option value="Eswatini"></option><option value="Ethiopia"></option><option value="Fiji"></option><option value="Finland"></option>
+                <option value="France"></option><option value="Gabon"></option><option value="Gambia"></option><option value="Georgia"></option>
+                <option value="Germany"></option><option value="Ghana"></option><option value="Greece"></option><option value="Grenada"></option>
+                <option value="Guatemala"></option><option value="Guinea"></option><option value="Guinea-Bissau"></option><option value="Guyana"></option>
+                <option value="Haiti"></option><option value="Honduras"></option><option value="Hungary"></option><option value="Iceland"></option>
+                <option value="India"></option><option value="Indonesia"></option><option value="Iran"></option><option value="Iraq"></option>
+                <option value="Ireland"></option><option value="Israel"></option><option value="Italy"></option><option value="Jamaica"></option>
+                <option value="Japan"></option><option value="Jordan"></option><option value="Kazakhstan"></option><option value="Kenya"></option>
+                <option value="Kiribati"></option><option value="Kuwait"></option><option value="Kyrgyzstan"></option><option value="Laos"></option>
+                <option value="Latvia"></option><option value="Lebanon"></option><option value="Lesotho"></option><option value="Liberia"></option>
+                <option value="Libya"></option><option value="Liechtenstein"></option><option value="Lithuania"></option><option value="Luxembourg"></option>
+                <option value="Madagascar"></option><option value="Malawi"></option><option value="Malaysia"></option><option value="Maldives"></option>
+                <option value="Mali"></option><option value="Malta"></option><option value="Marshall Islands"></option><option value="Mauritania"></option>
+                <option value="Mauritius"></option><option value="Mexico"></option><option value="Micronesia"></option><option value="Moldova"></option>
+                <option value="Monaco"></option><option value="Mongolia"></option><option value="Montenegro"></option><option value="Morocco"></option>
+                <option value="Mozambique"></option><option value="Myanmar"></option><option value="Namibia"></option><option value="Nauru"></option>
+                <option value="Nepal"></option><option value="Netherlands"></option><option value="New Zealand"></option><option value="Nicaragua"></option>
+                <option value="Niger"></option><option value="Nigeria"></option><option value="North Korea"></option><option value="North Macedonia"></option>
+                <option value="Norway"></option><option value="Oman"></option><option value="Pakistan"></option><option value="Palau"></option>
+                <option value="Palestine"></option><option value="Panama"></option><option value="Papua New Guinea"></option><option value="Paraguay"></option>
+                <option value="Peru"></option><option value="Philippines"></option><option value="Poland"></option><option value="Portugal"></option>
+                <option value="Qatar"></option><option value="Romania"></option><option value="Russia"></option><option value="Rwanda"></option>
+                <option value="Saint Kitts and Nevis"></option><option value="Saint Lucia"></option><option value="Saint Vincent and the Grenadines"></option><option value="Samoa"></option>
+                <option value="San Marino"></option><option value="Sao Tome and Principe"></option><option value="Saudi Arabia"></option><option value="Senegal"></option>
+                <option value="Serbia"></option><option value="Seychelles"></option><option value="Sierra Leone"></option><option value="Singapore"></option>
+                <option value="Slovakia"></option><option value="Slovenia"></option><option value="Solomon Islands"></option><option value="Somalia"></option>
+                <option value="South Africa"></option><option value="South Korea"></option><option value="South Sudan"></option><option value="Spain"></option>
+                <option value="Sri Lanka"></option><option value="Sudan"></option><option value="Suriname"></option><option value="Sweden"></option>
+                <option value="Switzerland"></option><option value="Syria"></option><option value="Tajikistan"></option><option value="Tanzania"></option>
+                <option value="Thailand"></option><option value="Timor-Leste"></option><option value="Togo"></option><option value="Tonga"></option>
+                <option value="Trinidad and Tobago"></option><option value="Tunisia"></option><option value="Turkey"></option><option value="Turkmenistan"></option>
+                <option value="Tuvalu"></option><option value="Uganda"></option><option value="Ukraine"></option><option value="United Arab Emirates"></option>
+                <option value="United Kingdom"></option><option value="United States"></option><option value="Uruguay"></option><option value="Uzbekistan"></option>
+                <option value="Vanuatu"></option><option value="Vatican City"></option><option value="Venezuela"></option><option value="Vietnam"></option>
+                <option value="Yemen"></option><option value="Zambia"></option><option value="Zimbabwe"></option>
+              </datalist>
+            </div>
+          </div>
+        </section>
+
+        <section class="form-section family-section" aria-labelledby="family-heading">
+          <div class="section-heading">
+            <span class="section-number">04</span>
+            <div>
+              <h2 id="family-heading">Family history</h2>
+              <p class="family-instructions">For each condition, answer in the first dropdown whether either of your parents have it, and in the second whether either of your grandparents have it.</p>
+            </div>
+          </div>
+
+          <div class="family-table" role="group" aria-label="Family history by condition">
+            <div class="family-header" aria-hidden="true">
+              <span>CONDITION</span><span>PARENTS</span><span>GRANDPARENTS</span>
+            </div>
+            <div class="family-row">
+              <span class="condition-name">Heart Disease</span>
+              <label class="visually-hidden" for="heart-parents">Heart Disease in parents</label>
+              <select id="heart-parents" name="familyHistory.heartDisease.parents" required aria-label="Heart Disease, parents"><option value="" selected disabled>Choose</option><option>Yes</option><option>No</option><option>Unsure</option></select>
+              <label class="visually-hidden" for="heart-grandparents">Heart Disease in grandparents</label>
+              <select id="heart-grandparents" name="familyHistory.heartDisease.grandparents" required aria-label="Heart Disease, grandparents"><option value="" selected disabled>Choose</option><option>Yes</option><option>No</option><option>Unsure</option></select>
+            </div>
+            <div class="family-row">
+              <span class="condition-name">Cancer</span>
+              <label class="visually-hidden" for="cancer-parents">Cancer in parents</label>
+              <select id="cancer-parents" name="familyHistory.cancer.parents" required aria-label="Cancer, parents"><option value="" selected disabled>Choose</option><option>Yes</option><option>No</option><option>Unsure</option></select>
+              <label class="visually-hidden" for="cancer-grandparents">Cancer in grandparents</label>
+              <select id="cancer-grandparents" name="familyHistory.cancer.grandparents" required aria-label="Cancer, grandparents"><option value="" selected disabled>Choose</option><option>Yes</option><option>No</option><option>Unsure</option></select>
+            </div>
+            <div class="family-row">
+              <span class="condition-name">Diabetes</span>
+              <label class="visually-hidden" for="diabetes-parents">Diabetes in parents</label>
+              <select id="diabetes-parents" name="familyHistory.diabetes.parents" required aria-label="Diabetes, parents"><option value="" selected disabled>Choose</option><option>Yes</option><option>No</option><option>Unsure</option></select>
+              <label class="visually-hidden" for="diabetes-grandparents">Diabetes in grandparents</label>
+              <select id="diabetes-grandparents" name="familyHistory.diabetes.grandparents" required aria-label="Diabetes, grandparents"><option value="" selected disabled>Choose</option><option>Yes</option><option>No</option><option>Unsure</option></select>
+            </div>
+            <div class="family-row">
+              <span class="condition-name">High Blood Pressure</span>
+              <label class="visually-hidden" for="blood-pressure-parents">High Blood Pressure in parents</label>
+              <select id="blood-pressure-parents" name="familyHistory.highBloodPressure.parents" required aria-label="High Blood Pressure, parents"><option value="" selected disabled>Choose</option><option>Yes</option><option>No</option><option>Unsure</option></select>
+              <label class="visually-hidden" for="blood-pressure-grandparents">High Blood Pressure in grandparents</label>
+              <select id="blood-pressure-grandparents" name="familyHistory.highBloodPressure.grandparents" required aria-label="High Blood Pressure, grandparents"><option value="" selected disabled>Choose</option><option>Yes</option><option>No</option><option>Unsure</option></select>
+            </div>
+          </div>
+        </section>
+
+        <div class="form-footer">
+          <p>Health information is for personal estimation only.</p>
+          <button type="submit">Estimate your life expectancy <span aria-hidden="true">↗</span></button>
+        </div>
+        <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+      </form>
+    </main>
+  </body>
+</html>
